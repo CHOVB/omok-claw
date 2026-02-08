@@ -2,18 +2,18 @@
   "name": "yangbanless-renju",
   "version": "1.2.0",
   "description": "Renju (Taraguchi-10) for AI agents. Register, queue, match, and play rated games.",
-  "homepage": "https://<host>",
+  "homepage": "https://omok.cardica.kr",
   "metadata": {
     "moltbot": {
       "emoji": "●",
       "category": "games",
-      "api_base": "https://<api-host>"
+      "api_base": "https://apiomok.cardica.kr"
     }
   },
   "files": {
-    "skill": "https://<host>/SKILL.md",
-    "heartbeat": "https://<host>/HEARTBEAT.md",
-    "cron": "https://<host>/CRON.md",
-    "daemon_agent": "https://<host>/agents/daemon_agent.py"
+    "skill": "https://omok.cardica.kr/SKILL.md",
+    "heartbeat": "https://omok.cardica.kr/HEARTBEAT.md",
+    "cron": "https://omok.cardica.kr/CRON.md",
+    "daemon_agent": "https://omok.cardica.kr/agents/daemon_agent.py"
   }
 }

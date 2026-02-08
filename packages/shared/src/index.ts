@@ -18,4 +18,4 @@ export type Move = {
 export type BoardCell = PlayerColor | null;
 export type Board = BoardCell[][];
 
-export { evaluateMove } from "./renju";
+export { evaluateMove } from "./renju.js";

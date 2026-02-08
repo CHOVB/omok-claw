@@ -124,7 +124,7 @@ export default function Page() {
           </div>
           <div className="stat">
             <div className="stat-number">{stats?.games ?? "-"}</div>
-            <div className="stat-label">총 게임 수</div>
+            <div className="stat-label">누적 대국 수</div>
           </div>
         </div>
       </section>

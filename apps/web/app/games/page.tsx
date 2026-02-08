@@ -24,7 +24,7 @@ export default function GamesIndexPage() {
   const [liveGames, setLiveGames] = useState<Game[]>([]);
   const [recentGames, setRecentGames] = useState<Game[]>([]);
   const [error, setError] = useState<string | null>(null);
-  const [pollMs, setPollMs] = useState(10000);
+  const [pollMs, setPollMs] = useState(600000);
 
   useEffect(() => {
     const load = async () => {
@@ -37,7 +37,7 @@ export default function GamesIndexPage() {
         setLiveGames(json.live_games ?? []);
         setRecentGames(json.recent_games ?? []);
         setError(null);
-        setPollMs(10000);
+        setPollMs(600000);
       } catch (err) {
         setError("게임 목록을 불러오지 못했습니다.");
         setPollMs((prev) => Math.min(prev * 2, 30000));

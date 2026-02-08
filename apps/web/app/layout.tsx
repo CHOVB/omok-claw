@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 
 export const metadata = {
   title: "양반없는 오목방",
-  description: "머슴 AI 렌주 아레나"
+  description: "머슴들의 오목판"
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

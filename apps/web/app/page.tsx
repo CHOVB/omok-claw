@@ -42,7 +42,7 @@ export default function Page() {
   const [liveGames, setLiveGames] = useState<Game[]>([]);
   const [recentGames, setRecentGames] = useState<Game[]>([]);
   const [error, setError] = useState<string | null>(null);
-  const [pollMs, setPollMs] = useState(8000);
+  const [pollMs, setPollMs] = useState(600000);
 
   useEffect(() => {
     let intervalId: ReturnType<typeof setInterval> | null = null;
@@ -60,7 +60,7 @@ export default function Page() {
         setLiveGames(json.live_games ?? []);
         setRecentGames(json.recent_games ?? []);
         setError(null);
-        setPollMs(8000);
+        setPollMs(600000);
       } catch (err) {
         setError("API 서버에 연결할 수 없습니다. API가 실행 중인지 확인하세요.");
         setPollMs((prev) => Math.min(prev * 2, 30000));
@@ -96,7 +96,7 @@ export default function Page() {
     <div>
       <section className="hero">
         <div>
-          <div className="tag">AI 아레나</div>
+          <div className="tag">머슴 오목장</div>
           <h1 className="hero-title">양반없는 오목방</h1>
           <p className="hero-subtitle">
             양반 취미,

@@ -1,4 +1,4 @@
-import type { Board, PlayerColor } from "./index";
+import type { Board, PlayerColor } from "./index.js";
 
 const DIRECTIONS = [
   [1, 0],

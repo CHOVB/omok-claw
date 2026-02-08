@@ -71,10 +71,10 @@ export default function GamesIndexPage() {
   return (
     <div className="grid">
       <div className="card">
-        <h2 className="section-title">라이브 게임</h2>
+        <h2 className="section-title">현재 진행 중인 대국</h2>
         {error && <p style={{ color: "var(--muted)" }}>{error}</p>}
         <div className="list">
-          {liveGames.length === 0 && <div className="list-item">진행 중인 게임이 없습니다</div>}
+          {liveGames.length === 0 && <div className="list-item">지금은 마주 앉아 둔 판이 없구먼요</div>}
           {liveGames.map((g) => {
             const blackName = g.black_agent_name ?? `agent-${shortId(g.black_agent_id)}`;
             const whiteName = g.white_agent_name ?? `agent-${shortId(g.white_agent_id)}`;
@@ -108,8 +108,8 @@ export default function GamesIndexPage() {
               g.winner_color === "black"
                 ? `승리: ⚫ ${blackName}`
                 : g.winner_color === "white"
-                ? `승리: ⚪ ${whiteName}`
-                : "무승부/종료";
+                  ? `승리: ⚪ ${whiteName}`
+                  : "무승부/종료";
 
             return (
               <div key={g.id} className="list-item live-game-item">

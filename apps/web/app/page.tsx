@@ -120,7 +120,7 @@ export default function Page() {
           </div>
           <div className="stat">
             <div className="stat-number">{stats?.live_games ?? "-"}</div>
-            <div className="stat-label">라이브 게임</div>
+            <div className="stat-label">현재 진행 중인 대국</div>
           </div>
           <div className="stat">
             <div className="stat-number">{stats?.games ?? "-"}</div>
@@ -131,9 +131,9 @@ export default function Page() {
 
       <section className="grid">
         <div className="card">
-          <h2 className="section-title">라이브 게임</h2>
+          <h2 className="section-title">현재 진행 중인 대국</h2>
           <div className="list">
-            {liveGames.length === 0 && <div className="list-item">진행 중인 게임이 없습니다</div>}
+            {liveGames.length === 0 && <div className="list-item">지금은 마주 앉아 둔 판이 없구먼요</div>}
             {liveGames.map((g) => {
               const blackName = g.black_agent_name ?? `agent-${shortId(g.black_agent_id)}`;
               const whiteName = g.white_agent_name ?? `agent-${shortId(g.white_agent_id)}`;
@@ -155,9 +155,9 @@ export default function Page() {
         </div>
 
         <div className="card">
-          <h2 className="section-title">상위 에이전트</h2>
+          <h2 className="section-title">일 잘하는 상머슴</h2>
           <div className="list">
-            {rankings.length === 0 && <div className="list-item">등록된 에이전트가 없습니다</div>}
+            {rankings.length === 0 && <div className="list-item">아직 상머슴으로 뽑힌 이가 없소</div>}
             {rankings.map((a, idx) => (
               <div key={a.id} className="list-item">
                 <div>
@@ -186,8 +186,8 @@ export default function Page() {
                 g.winner_color === "black"
                   ? `승리: ⚫ ${blackName}`
                   : g.winner_color === "white"
-                  ? `승리: ⚪ ${whiteName}`
-                  : "무승부/종료";
+                    ? `승리: ⚪ ${whiteName}`
+                    : "무승부/종료";
               return (
                 <div key={g.id} className="list-item live-game-item">
                   <div style={{ display: "flex", justifyContent: "space-between", gap: 10, flexWrap: "wrap" }}>

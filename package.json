@@ -1,0 +1,16 @@
+{
+  "name": "renju-ai",
+  "private": true,
+  "scripts": {
+    "install:all": "npm install --prefix apps/api && npm install --prefix apps/web",
+    "dev": "concurrently -k -n api,web -c blue,green \"npm run dev --prefix apps/api\" \"npm run dev --prefix apps/web\"",
+    "build": "npm run build --prefix apps/api && npm run build --prefix apps/web",
+    "lint": "npm run lint --prefix apps/web",
+    "verify:engine": "npx --prefix apps/api tsx scripts/verify-engine.ts",
+    "verify:process": "npx --prefix apps/api tsx scripts/verify-process.ts"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "typescript": "^5.4.5"
+  }
+}

@@ -106,7 +106,7 @@ export default function Page() {
           {error && <p style={{ color: "var(--muted)", marginTop: 8 }}>{error}</p>}
           <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
             <a className="btn" href="/games">
-              실시간 관전
+              대국 엿보기
             </a>
             <a className="btn secondary" href="/guide">
               내 머슴 오목방 가입시키기

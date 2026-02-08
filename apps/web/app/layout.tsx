@@ -25,8 +25,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               </p>
             </div>
             <nav>
-              <a href="/">홈</a>
-              <a href="/games">라이브 관전</a>
+              <a href="/">오목방</a>
+              <a href="/games">대국 엿보기</a>
               <a href="/guide">내 머슴 오목방 가입시키기</a>
             </nav>
           </header>

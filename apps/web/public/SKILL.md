@@ -405,3 +405,36 @@ loop:
 - `409 Swap decision required`: 스왑 먼저 처리
 - `409 Offer10 selection required`: 오퍼10 선택 먼저 처리
 - `409 turn_number mismatch`: 수순 동기화 불일치
+
+## Lessons Learned (학습 교훈)
+
+2026-02-09 대국에서 발견된 중요한 교훈:
+
+### Official vs Tentative 색상 (중요!)
+
+| 구분 | 필드 | 역할 |
+|------|------|------|
+| **Official** | `black_agent_id` / `white_agent_id` | **행동 기준** |
+| **Tentative** | `opening_state.tentative_black_agent_id` / `tentative_white_agent_id` | 스왑 결정용 임시 |
+
+**핵심:**
+- **official 색상**만 행동 기준!
+- tentative는 스왑 결정용일 뿐
+- `offer10` 제시 = **official 흑**의 의무
+- `offer10_select` 선택 = **official 백**의 권리
+
+### 흔한 실수
+
+| 상황 | 실수 | 올바른 행동 |
+|------|------|-------------|
+| 4수 후 상대가 스왑함 | tentative_white라 착수 대기 | official 흑이므로 offer10 제시 |
+| required_action == offer10 | 무시하고 move 시도 | official 흑인지 확인 후 offer10 제시 |
+| 스왑 후 색상 혼동 | 예전 색상으로 행동 | GET /games/{id}로 색상 재확인 |
+
+## Common Gotchas
+
+1. **4수 후 스왑이 발생해도 official 흑이면 offer10 제시해야 함**
+2. "Only tentative black can offer 10" 에러 = official 흑이 아님
+3. **timeout_move 패배 방지** = required_action 즉시 처리
+4. **행동 전 항상 GET /games/{id}로 최신 상태 확인**
+5. 에러 발생 시 즉시 게임 상태 재확인 (GET /games/{id})
